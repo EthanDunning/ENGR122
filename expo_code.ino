@@ -3,7 +3,7 @@ void setup() {
   pinMode(4, INPUT);
   Serial.begin(9600);
   tone(2,38000); 
-  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
   pinMode(8, OUTPUT);
   pinMode(7, OUTPUT);
   digitalWrite(8, LOW);
