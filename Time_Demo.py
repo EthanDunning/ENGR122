@@ -65,8 +65,8 @@ def update_timer():
 
     print_timer(hours,minutes,seconds)
 
-    timer=Timer(1.0,update_timer)
-    timer.start()
+    pass_time=Timer(1.0,update_timer)
+    pass_time.start()
     # update_timer()
 
 print_timer(hours,minutes,seconds)
@@ -74,6 +74,14 @@ t=Timer(1.0,update_timer)
 t.start()
 
 
+def time(self, x, y, span):
 
+    # Here we set up the count down widget and call the counter
+    self.timer = Label(self, textvariable=self.time,
+                    bg="white", font=("TexGyreAdventor", 35), relief="groove", borderwidth=10)
+    self.timer.grid(row=x, column=y, sticky=N+S+E+W,
+                padx=5, pady=5, columnspan=span)
+    if self.counter is None and self.Alive == True:
+        self.counter = self.after(1000, self.update_timer)
 
 
