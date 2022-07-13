@@ -126,6 +126,14 @@ class MainGUI(Frame):
         back_button = Button(self, bg="gray", text="Back", font=("TexGyreAdventor", 15), relief="groove", borderwidth=3, activebackground="light grey", command=lambda: self.MainMenu())
         back_button.grid(row=y, column=x, sticky=N+S+E+W, pady=5, columnspan=span)
 
+    def time(self, x, y, span):
+        # Here we set up the count down widget and call the counter
+        self.timer = Label(self, textvariable=self.time, bg="white", font=("TexGyreAdventor", 35), relief="groove", borderwidth=10)
+        self.timer.grid(row=x, column=y, sticky=N+S+E+W, padx=5, pady=5, columnspan=span)
+        
+        if self.counter is None and self.Alive == True:
+            self.counter = self.after(1000, self.update_timer)
+
 # create the window
 window = Tk()
 # set the window title

@@ -1,48 +1,56 @@
+
 int x=0;
+
 void setup() {
-  pinMode(4, INPUT);
   Serial.begin(9600);
   tone(2,38000); 
-  pinMode(10, OUTPUT);
-  pinMode(8, OUTPUT);
+  pinMode(4, INPUT);
   pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(10, OUTPUT);
   digitalWrite(8, LOW);
   digitalWrite(7, LOW);
 }
  
 void loop() {
   int detect=digitalRead(4);
+  
+  Serial.println(detect);
   if(detect==0){
-    Serial.println(detect);
+
     if(x==0){
+      Serial.println("A");
       Serial.println("on");
-    analogWrite(9, 255);  
-      digitalWrite(8, HIGH);
       digitalWrite(7, LOW);
+      digitalWrite(8, HIGH);
+      analogWrite(10, 255);  
       delay(1000);
       x=1;
     }
     if(x==1){
-       Serial.println("on");
-      digitalWrite(8, LOW);
+      Serial.println("B");
+      Serial.println("on");
       digitalWrite(7, LOW);
+      digitalWrite(8, LOW);
       delay(3000);
     }
-      }
+  }
+
   else{
-    Serial.println(detect);
     if(x==1){
-       Serial.println("off");
-    analogWrite(9, 255);  
+    Serial.println("C");
+    Serial.println("off");
+    analogWrite(10, 255);  
     digitalWrite(8, LOW);
     digitalWrite(7, HIGH);
     delay(1000);
     x=0;
     }
     else{
-       Serial.println("off");
+      Serial.println("D");
+      Serial.println("off");
       digitalWrite(8, LOW);
-    digitalWrite(7, LOW);
+      digitalWrite(7, LOW);
     }
   }
 }
